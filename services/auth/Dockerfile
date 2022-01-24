@@ -1,6 +1,6 @@
 FROM node:13
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-RUN yarn global add prisma
+RUN yarn global add prisma1
 
 WORKDIR /app
 COPY package.json yarn.lock ./
