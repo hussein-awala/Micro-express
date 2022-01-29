@@ -39,13 +39,13 @@ do
 
   if [[ $env == "prod" ]]
   then 
-    ENV=$env docker-compose -f docker-compose.yaml up --build -d --quiet-pull --remove-orphans
+    ENV=$env docker-compose -f docker-compose-hub.yaml up -d --quiet-pull --remove-orphans
   elif [[ $env == "test" ]]
   then
-    ENV=$env docker-compose -f docker-compose.yaml -f docker-compose.local.yaml up --build -d --quiet-pull --remove-orphans
+    ENV=$env docker-compose -f docker-compose-hub.yaml -f docker-compose.local.yaml up -d --quiet-pull --remove-orphans
   elif [[ $env == "dev" ]]
   then
-    ENV=$env docker-compose -f docker-compose.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml up --build -d --quiet-pull --remove-orphans
+    ENV=$env docker-compose -f docker-compose-hub.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml up -d --quiet-pull --remove-orphans
   fi
   
   if [[ $env == "test" ]]

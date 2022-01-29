@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    image: husseinawala/micro-service-auth:latest
+    command: sh -c "yarn lint-check && yarn ${ENV:-dev}"
+    volumes:
+      - /app/node_modules
+    networks:
+      - user_app
+      - app
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
+    restart: always
+
+networks:
+  user_app:
+    external: true
+  app:
+    driver: bridge
